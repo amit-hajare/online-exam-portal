@@ -1,28 +1,11 @@
-version: '1'
+version: '3'
 
 services:
-  backend:
-    container_name: backend-app
-    image: backend3
-    environment:
-      - NODE_ENV=docker
-    build:
-      context: backend
-      dockerfile: Dockerfile
-    ports:
-      - 5000:5000
-
   frontend:
     container_name: frontend-app
-    image: frontend3
-    environment:
-      - NODE_ENV=docker
-      - REACT_APP_API_BASE_URL=http://backend:5000
-      
+    image: frontend3      
     build: 
       context: frontend
       dockerfile: Dockerfile
     ports:
      - 3100:3000
-    depends_on:
-     - backend
