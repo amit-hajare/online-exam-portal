@@ -3,7 +3,7 @@ version: '1'
 services:
   backend:
     container_name: backend-app
-    image: backend-app:1.0
+    image: backend3
     environment:
       - NODE_ENV=docker
     build:
@@ -14,7 +14,7 @@ services:
 
   frontend:
     container_name: frontend-app
-    image: frontend-app:1.0
+    image: frontend3
     environment:
       - NODE_ENV=docker
       - REACT_APP_API_BASE_URL=http://backend:5000
