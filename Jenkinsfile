@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'dev'  // Specify the label for the entire pipeline hi
+        label 'dev'  // Specify the label for the entire pipeline 
     }
     
     stages {
@@ -9,6 +9,22 @@ pipeline {
                 dir('/home/kesari/Videos/') {
                     sh "rm -rf online-exam-portal online-exam-portal@tmp"
                     sh "git clone https://github.com/amit-hajare/online-exam-portal.git"
+                }
+            }
+        }
+
+        stage('docker container down') {
+            steps {
+                dir('/home/kesari/Videos/online-exam-portal/frontend') {
+                    sh "docker compose down"
+                }
+            }
+        }
+
+        stage('docker images delete') {
+            steps {
+                dir('/home/kesari/Videos/online-exam-portal/frontend') {
+                    sh "docker system prune -af"
                 }
             }
         }
@@ -21,7 +37,6 @@ pipeline {
             }
         }
         
-       
         stage('docker-compose up') {
             steps {
                 dir('/home/kesari/Videos/online-exam-portal/') {
