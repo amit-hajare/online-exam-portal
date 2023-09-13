@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'dev'  // Specify the label for the entire pipeline hello
+        label 'dev'  // Specify the label for the entire pipeline 12388
     }
     
     stages {
