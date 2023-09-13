@@ -1,6 +1,7 @@
 pipeline {
-    agent any
-    
+    agent {
+        label 'dev'  // Specify the label for the entire pipeline
+    }
     
     stages {
         stage('clone project') {
