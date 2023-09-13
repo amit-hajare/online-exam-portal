@@ -1,12 +1,12 @@
 pipeline {
     agent {
-        label 'dev'  // Specify the label for the entire pipeline up
+        label 'dev'  // Specify the label for the entire pipeline hello
     }
     
     stages {
         stage('clone project') {
             steps {
-                dir('/home/kesari/workspace/') {
+                dir('/home/kesari/workspace/sample-project/') {
                     sh "rm -rf online-exam-portal online-exam-portal@tmp"
                     sh "git clone https://github.com/amit-hajare/online-exam-portal.git"
                 }
