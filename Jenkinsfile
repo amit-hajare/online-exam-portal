@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('clone project') {
             steps {
-                dir('/home/kesari/Videos/') {
+                dir('/home/kesari/workspace/') {
                     sh "rm -rf online-exam-portal online-exam-portal@tmp"
                     sh "git clone https://github.com/amit-hajare/online-exam-portal.git"
                 }
@@ -15,7 +15,7 @@ pipeline {
 
         stage('docker container down') {
             steps {
-                dir('/home/kesari/Videos/online-exam-portal/frontend') {
+                dir('/home/kesari/workspace/online-exam-portal/frontend') {
                     sh "docker compose down"
                 }
             }
@@ -23,7 +23,7 @@ pipeline {
 
         stage('docker images delete') {
             steps {
-                dir('/home/kesari/Videos/online-exam-portal/frontend') {
+                dir('/home/kesari/workspace/online-exam-portal/frontend') {
                     sh "docker system prune -af"
                 }
             }
@@ -31,7 +31,7 @@ pipeline {
        
         stage('build dockerfile frontend') {
             steps {
-                dir('/home/kesari/Videos/online-exam-portal/frontend') {
+                dir('/home/kesari/workspace/online-exam-portal/frontend') {
                     sh "docker build -t frontend4 ."
                 }
             }
@@ -39,13 +39,10 @@ pipeline {
         
         stage('docker-compose up') {
             steps {
-                dir('/home/kesari/Videos/online-exam-portal/') {
+                dir('/home/kesari/workspace/online-exam-portal/') {
                     sh "docker compose up -d"
                 }
             }
         }
     }
 }
-
-
-
