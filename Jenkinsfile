@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'dev'  // Specify the label for the entire pipeline up to date 0000
+        label 'dev'  // Specify the label for the entire pipeline up to date no updated
     }
     
     stages {
