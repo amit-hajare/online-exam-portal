@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:13-alpine
 
 WORKDIR /usr/frontend
 
@@ -8,5 +8,6 @@ RUN npm install
 
 RUN npm run build
 
-CMD ["sh", "-c", "npm start"] 
+
+CMD ["sh", "-c", "npm start"]
 
