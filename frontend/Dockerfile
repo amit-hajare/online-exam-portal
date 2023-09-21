@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:12
 
 WORKDIR /usr/frontend
 
@@ -7,7 +7,6 @@ RUN rm -rf node_modules/ package-lock.json
 RUN npm install
 
 RUN npm run build
-
 
 CMD ["sh", "-c", "npm start"] 
 
